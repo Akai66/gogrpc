@@ -1,0 +1,19 @@
+syntax="proto3";
+
+option go_package = "./services";
+
+//定义请求及响应数据
+
+message ProdRequest{
+    int32 prod_id=1;  //传入的商品id
+}
+
+message ProdResponse{
+  int32 prod_stock=1;  //商品库存
+}
+
+
+//定义services
+service ProdService {
+  rpc GetProdStock(ProdRequest) returns (ProdResponse);
+}
