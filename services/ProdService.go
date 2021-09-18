@@ -30,3 +30,12 @@ func (this *ProdService) GetProdStocks(ctx context.Context, in *QuerySize) (*Pro
 	}
 	return &ProdResponseList{Prods:prodres},nil
 }
+
+func (this *ProdService) GetProdInfo(context.Context, *ProdRequest) (*ProdModel, error)  {
+	prod := &ProdModel{
+		ProdId: 1,
+		ProdName: "测试商品",
+		ProdPrice: 1.21,
+	}
+	return prod,nil
+}

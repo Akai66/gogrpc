@@ -4,6 +4,8 @@ option go_package = "./services";
 
 import "google/api/annotations.proto";
 
+import "Models.proto";
+
 //定义请求及响应数据
 
 //商品区域
@@ -42,4 +44,7 @@ service ProdService {
 
   //获取多个
   rpc GetProdStocks(QuerySize) returns (ProdResponseList) {}
+
+  //获取商品信息
+  rpc GetProdInfo(ProdRequest) returns (ProdModel) {}
 }
