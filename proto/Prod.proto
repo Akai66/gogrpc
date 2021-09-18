@@ -14,6 +14,13 @@ message ProdResponse{
   int32 prod_stock=1;  //商品库存
 }
 
+message QuerySize{
+  int32 size=1; //页
+}
+
+message ProdResponseList{
+  repeated ProdResponse prods=1;
+}
 
 //定义services
 service ProdService {
@@ -23,4 +30,7 @@ service ProdService {
       get: "/v1/prod/{prod_id}"  //get请求的path，{prod_id}必须和ProdRequest中的字段名一致
     };
   }
+
+  //获取多个
+  rpc GetProdStocks(QuerySize) returns (ProdResponseList) {}
 }
