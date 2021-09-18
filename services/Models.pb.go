@@ -85,13 +85,13 @@ func (x *ProdModel) GetProdPrice() float32 {
 	return 0
 }
 
-//订单模型
+//主订单模型
 type OrderMain struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	OrderId    int32                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`           //订单id
+	OrderId    int32                  `protobuf:"varint,1,opt,name=order_id,json=orderId,proto3" json:"order_id,omitempty"`           //主订单id
 	OrderNo    string                 `protobuf:"bytes,2,opt,name=order_no,json=orderNo,proto3" json:"order_no,omitempty"`            //订单号
 	UserId     int32                  `protobuf:"varint,3,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`              //购买者id
 	OrderPrice float32                `protobuf:"fixed32,4,opt,name=order_price,json=orderPrice,proto3" json:"order_price,omitempty"` //商品价格

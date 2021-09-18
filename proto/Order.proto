@@ -2,9 +2,17 @@ syntax="proto3";
 
 option go_package = "./services";
 
+import "google/api/annotations.proto";
+
 import "Models.proto";
 
 //定义Order service 相关的数据
+
+//请求数据
+message OrderRequest{
+  OrderMain order_main=1;
+}
+
 
 //创建订单后的响应数据
 message OrderResponse{
@@ -14,6 +22,11 @@ message OrderResponse{
 
 service OrderService {
   //新建订单
-  rpc NewOrder(OrderMain) returns (OrderResponse) {}
+  rpc NewOrder(OrderRequest) returns (OrderResponse) {
+    option (google.api.http) = {
+      post: "/v1/orders"  //post请求
+      body: "order_main"  //通过body字段绑定请求数据模型，post请求数据(json类型)和OrderRequest中的order_main进行绑定
+    };
+  }
 }
 

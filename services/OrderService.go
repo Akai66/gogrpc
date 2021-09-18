@@ -11,8 +11,8 @@ type OrderService struct {
 }
 
 
-func (this *OrderService) NewOrder(ctx context.Context,order *OrderMain) (*OrderResponse, error) {
-	fmt.Println(order)
+func (this *OrderService) NewOrder(ctx context.Context,orderReq *OrderRequest) (*OrderResponse, error) {
+	fmt.Println(orderReq.OrderMain)
 	return &OrderResponse{
 		Status: "ok",
 		Msg: "success",
