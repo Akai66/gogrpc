@@ -16,8 +16,10 @@ func main()  {
 
 	//创建grpc server实例
 	rpcServer := grpc.NewServer(grpc.Creds(helper.GetServerCreds()))
-	//注册service server
+	//注册prod service server
 	services.RegisterProdServiceServer(rpcServer,&services.ProdService{})
+	//注册order service server
+	services.RegisterOrderServiceServer(rpcServer,&services.OrderService{})
 	//设置监听协议及端口
 	lis,_ := net.Listen("tcp",":8081")
 	//启动

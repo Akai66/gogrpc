@@ -1,0 +1,19 @@
+syntax="proto3";
+
+option go_package = "./services";
+
+import "Models.proto";
+
+//定义Order service 相关的数据
+
+//创建订单后的响应数据
+message OrderResponse{
+  string status=1;
+  string msg=2;
+}
+
+service OrderService {
+  //新建订单
+  rpc NewOrder(OrderMain) returns (OrderResponse) {}
+}
+
