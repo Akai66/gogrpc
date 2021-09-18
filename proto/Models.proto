@@ -18,4 +18,15 @@ message OrderMain{
   int32 user_id=3;//购买者id
   float order_price=4;//商品价格
   google.protobuf.Timestamp order_time=5;//下单时间
+  repeated OrderDetail order_detail=6;//子订单详情
+}
+
+
+//子订单模型
+message OrderDetail{
+  int32 detail_id=1;//子订单id
+  string order_no=2;//主订单id
+  int32 prod_id=3;//产品id
+  float prod_price=4;//产品价格
+  int32 prod_num=5;//产品数量
 }
