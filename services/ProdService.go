@@ -10,7 +10,15 @@ type ProdService struct {
 }
 
 func (this *ProdService) GetProdStock(ctx context.Context, request *ProdRequest) (*ProdResponse, error)  {
-	return &ProdResponse{ProdStock: 25},nil
+	var stock int32 = 50
+	if request.ProdArea == ProdAreas_A {
+		stock = 41
+	}else if request.ProdArea == ProdAreas_B {
+		stock = 30
+	}else if request.ProdArea == ProdAreas_C {
+		stock = 20
+	}
+	return &ProdResponse{ProdStock: stock},nil
 }
 
 func (this *ProdService) GetProdStocks(ctx context.Context, in *QuerySize) (*ProdResponseList, error)  {

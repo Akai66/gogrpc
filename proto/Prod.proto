@@ -6,8 +6,17 @@ import "google/api/annotations.proto";
 
 //定义请求及响应数据
 
+//商品区域
+enum ProdAreas {
+  A=0;
+  B=1;
+  C=2;
+}
+
+
 message ProdRequest{
-    int32 prod_id=1;  //传入的商品id
+  int32 prod_id=1;  //传入的商品id
+  ProdAreas prod_area=2; //传入的商品区域
 }
 
 message ProdResponse{
