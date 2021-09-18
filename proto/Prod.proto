@@ -2,6 +2,8 @@ syntax="proto3";
 
 option go_package = "./services";
 
+import "google/api/annotations.proto";
+
 //定义请求及响应数据
 
 message ProdRequest{
@@ -15,5 +17,10 @@ message ProdResponse{
 
 //定义services
 service ProdService {
-  rpc GetProdStock(ProdRequest) returns (ProdResponse);
+  //获取单个
+  rpc GetProdStock(ProdRequest) returns (ProdResponse){
+    option (google.api.http) = {
+      get: "/v1/prod/{prod_id}"  //get请求的path，{prod_id}必须和ProdRequest中的字段名一致
+    };
+  }
 }
