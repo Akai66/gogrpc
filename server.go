@@ -20,6 +20,8 @@ func main()  {
 	services.RegisterProdServiceServer(rpcServer,&services.ProdService{})
 	//注册order service server
 	services.RegisterOrderServiceServer(rpcServer,&services.OrderService{})
+	//注册user service server
+	services.RegisterUserServiceServer(rpcServer,&services.UserService{})
 	//设置监听协议及端口
 	lis,_ := net.Listen("tcp",":8081")
 	//启动

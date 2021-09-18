@@ -1,0 +1,22 @@
+syntax="proto3";
+
+option go_package = "./services";
+
+import "Models.proto";
+
+//定义请求及响应数据
+
+message UserRequest{
+  repeated UserInfo users=1;
+}
+
+message UserResponse{
+  repeated UserInfo users=1;
+}
+
+
+//定义services
+service UserService {
+  //获取商品信息
+  rpc GetUserScore(UserRequest) returns (UserResponse) {}
+}

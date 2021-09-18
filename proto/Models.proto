@@ -30,3 +30,10 @@ message OrderDetail{
   float prod_price=4;//产品价格
   int32 prod_num=5;//产品数量
 }
+
+
+//用户模型
+message UserInfo{
+  int32 user_id=1;//用户id
+  int32 user_score=2;//用户积分
+}
