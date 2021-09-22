@@ -25,4 +25,7 @@ service UserService {
 
   //客户端开启流模式，客户端分批发送，服务端一次性全部响应
   rpc GetUserScoreByClientStream(stream UserRequest) returns (UserResponse) {}
+
+  //双向流模式，客户端分批发送，服务端分批响应
+  rpc GetUserScoreByTwStream(stream UserRequest) returns (stream UserResponse) {}
 }
