@@ -17,6 +17,9 @@ message UserResponse{
 
 //定义services
 service UserService {
-  //获取商品信息
+  //普通模式，批量获取用户积分
   rpc GetUserScore(UserRequest) returns (UserResponse) {}
+
+  //服务端流模式，批量获取用户积分
+  rpc GetUserScoreByStream(UserRequest) returns (stream UserResponse) {}
 }
